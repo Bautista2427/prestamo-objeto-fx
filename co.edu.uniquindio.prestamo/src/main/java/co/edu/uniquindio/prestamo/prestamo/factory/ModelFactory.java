@@ -32,4 +32,16 @@ public class ModelFactory implements IModelFactoryService {
     public List<ClienteDto> obtenerClientes() {
         return mapper.getClientesDto(prestamoObjeto.getListaClientes());
     }
+
+    @Override
+    public boolean agregarCliente(ClienteDto clienteDto) {
+        Cliente cliente = mapper.clienteDtoToCliente(clienteDto);
+        return prestamoObjeto.crearCliente(cliente);
+        //return prestamoObjeto.crearCliente(mapper.clienteDtoToCliente(clienteDto));
+    }
+
+    @Override
+    public boolean eliminarCliente(String cedula) {
+        return prestamoObjeto.eliminarCliente(cedula);
+    }
 }

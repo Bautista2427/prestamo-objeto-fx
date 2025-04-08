@@ -99,4 +99,14 @@ public class PrestamoObjeto {
 
         return resultado;
     }
+
+    public boolean eliminarCliente(String cedula) {
+        Cliente clienteEncontrado = obtenerCliente(cedula);
+        if(clienteEncontrado !=null){
+            getListaClientes().remove(clienteEncontrado);
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

@@ -14,4 +14,12 @@ public class ClienteController {
     public List<ClienteDto> obtenerClientes() {
         return modelFactory.obtenerClientes();
     }
+
+    public boolean agregarCliente(ClienteDto clienteDto) {
+        return modelFactory.agregarCliente(clienteDto);
+    }
+
+    public boolean eliminarCliente(String cedula) {
+        return modelFactory.eliminarCliente(cedula);
+    }
 }

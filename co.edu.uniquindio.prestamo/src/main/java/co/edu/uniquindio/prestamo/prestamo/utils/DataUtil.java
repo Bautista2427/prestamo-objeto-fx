@@ -13,6 +13,7 @@ public class DataUtil {
                 .apellido("arias")
                 .direccion("armenia")
                 .edad(17)
+                .email("jsjsj@gmail.com")
                 .build();
 
         Cliente cliente2 = Cliente.builder()
@@ -21,6 +22,7 @@ public class DataUtil {
                 .apellido("cardenas")
                 .direccion("quimbaya")
                 .edad(25)
+                .email("jsjsj2@gmail.com")
                 .build();
 
         Cliente cliente3 = Cliente.builder()
@@ -29,6 +31,7 @@ public class DataUtil {
                 .apellido("perez")
                 .direccion("armenia")
                 .edad(40)
+                .email("jsjsj3@gmail.com")
                 .build();
 
         prestamoObjeto.getListaClientes().add(cliente1);
