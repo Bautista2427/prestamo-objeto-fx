@@ -72,4 +72,5 @@ public class Prestamo {
     public void setListaObjetosAsociados(List<Objeto> listaObjetosAsociados) {
         this.listaObjetosAsociados = listaObjetosAsociados;
     }
+
 }

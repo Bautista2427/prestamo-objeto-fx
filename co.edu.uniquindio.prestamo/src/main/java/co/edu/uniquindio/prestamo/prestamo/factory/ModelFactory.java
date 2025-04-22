@@ -44,4 +44,8 @@ public class ModelFactory implements IModelFactoryService {
     public boolean eliminarCliente(String cedula) {
         return prestamoObjeto.eliminarCliente(cedula);
     }
+
+    public String buscarObjetoIdenfiticador(String idenfiticador){
+        return prestamoObjeto.buscarObjetoIdenfiticador(idenfiticador);
+    }
 }

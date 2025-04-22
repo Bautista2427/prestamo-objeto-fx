@@ -17,6 +17,13 @@ public class PrestamoObjeto {
     public PrestamoObjeto() {
     }
 
+    public List<Objeto> getListaObjetos() {
+        return listaObjetos;
+    }
+
+    public void setListaObjetos(List<Objeto> listaObjetos) {
+        this.listaObjetos = listaObjetos;
+    }
 
     public boolean crearCliente(String cedula,
                                 String nombre,
@@ -108,5 +115,33 @@ public class PrestamoObjeto {
         }else{
             return false;
         }
+    }
+    public boolean agregarObjeto(Objeto objeto){
+        Objeto objetoEcontrado=buscarObjeto(objeto);
+        if(objetoEcontrado == null){
+            getListaObjetos().add(objeto);
+            return true;
+        }
+
+        return false;
+    }
+
+    private Objeto buscarObjeto(Objeto objeto) {
+        for(Objeto buscarObjeto: listaObjetos){
+            if(buscarObjeto.getIdObjeto().equalsIgnoreCase(objeto.getIdObjeto())){
+                return buscarObjeto;
+            }
+        }
+        return null;
+    }
+
+    public String buscarObjetoIdenfiticador(String identificador) {
+        String nombreObjeto=null;
+        for(Objeto objeto: listaObjetos){
+            if(objeto.getIdObjeto().equalsIgnoreCase(identificador)){
+                nombreObjeto=objeto.getNombre();
+            }
+        }
+        return nombreObjeto;
     }
 }

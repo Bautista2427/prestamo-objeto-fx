@@ -1,12 +1,15 @@
 package co.edu.uniquindio.prestamo.prestamo.utils;
 
 import co.edu.uniquindio.prestamo.prestamo.model.Cliente;
+import co.edu.uniquindio.prestamo.prestamo.model.Objeto;
 import co.edu.uniquindio.prestamo.prestamo.model.PrestamoObjeto;
 
 public class DataUtil {
 
     public static PrestamoObjeto inicializarDatos() {
         PrestamoObjeto prestamoObjeto = new PrestamoObjeto();
+        Objeto objeto1 = new Objeto( "Espada Legendaria","OBJ001");
+        Objeto objeto2 = new Objeto( "Escudo Mágico","OBJ002");
         Cliente cliente1 = Cliente.builder()
                 .cedula("1094")
                 .nombre("juan")
@@ -33,7 +36,8 @@ public class DataUtil {
                 .edad(40)
                 .email("jsjsj3@gmail.com")
                 .build();
-
+        prestamoObjeto.agregarObjeto(objeto1);
+        prestamoObjeto.agregarObjeto(objeto2);
         prestamoObjeto.getListaClientes().add(cliente1);
         prestamoObjeto.getListaClientes().add(cliente2);
         prestamoObjeto.getListaClientes().add(cliente3);
