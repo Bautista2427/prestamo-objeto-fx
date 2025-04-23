@@ -10,6 +10,8 @@ public class DataUtil {
         PrestamoObjeto prestamoObjeto = new PrestamoObjeto();
         Objeto objeto1 = new Objeto( "Espada Legendaria","OBJ001");
         Objeto objeto2 = new Objeto( "Escudo Mágico","OBJ002");
+        Objeto objeto3 = new Objeto("Hacha Leviatan", "OBJ003");
+        Objeto objeto4 = new Objeto("Ballesta Valheim", "OBJ004");
         Cliente cliente1 = Cliente.builder()
                 .cedula("1094")
                 .nombre("juan")
@@ -38,6 +40,8 @@ public class DataUtil {
                 .build();
         prestamoObjeto.agregarObjeto(objeto1);
         prestamoObjeto.agregarObjeto(objeto2);
+        prestamoObjeto.agregarObjeto(objeto3);
+        prestamoObjeto.agregarObjeto(objeto4);
         prestamoObjeto.getListaClientes().add(cliente1);
         prestamoObjeto.getListaClientes().add(cliente2);
         prestamoObjeto.getListaClientes().add(cliente3);

@@ -2,7 +2,9 @@ package co.edu.uniquindio.prestamo.prestamo.model;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PrestamoObjeto {
 
@@ -135,13 +137,54 @@ public class PrestamoObjeto {
         return null;
     }
 
-    public String buscarObjetoIdenfiticador(String identificador) {
-        String nombreObjeto=null;
+    public String buscarObjetoIdentificador(String identificador) {
+        String nombreObjeto = null;
         for(Objeto objeto: listaObjetos){
             if(objeto.getIdObjeto().equalsIgnoreCase(identificador)){
                 nombreObjeto=objeto.getNombre();
             }
         }
         return nombreObjeto;
+    }
+
+    public List<Objeto> obtenerObjetosMasPrestados(int minimoPrestamos) {
+        List<Objeto> resultado = new ArrayList<>();
+        for (Objeto obj : listaObjetos) {
+            int prestamos = obtenerCantidadPrestamosDeObjeto(obj.getIdObjeto());
+            if (prestamos > minimoPrestamos) {
+                resultado.add(obj);
+            }
+        }
+        return resultado;
+    }
+
+    public int obtenerCantidadPrestamosDeObjeto(String idObjeto) {
+        int contador = 0;
+        for (Prestamo prestamo : listaPrestamos) {
+            for (Objeto obj : prestamo.getListaObjetosAsociados()) {
+                if (obj.getIdObjeto().equalsIgnoreCase(idObjeto)) {
+                    contador++;
+                }
+            }
+        }
+        return contador;
+    }
+
+    public Map<String, Integer> obtenerCantidadDisponibilidad() {
+        int disponibles = 0;
+        int noDisponibles = 0;
+
+        for (Objeto obj : listaObjetos) {
+            if (obj.isDisponible()) {
+                disponibles++;
+            } else {
+                noDisponibles++;
+            }
+        }
+
+        Map<String, Integer> resultado = new HashMap<>();
+        resultado.put("disponibles", disponibles);
+        resultado.put("noDisponibles", noDisponibles);
+        return resultado;
     }
 }

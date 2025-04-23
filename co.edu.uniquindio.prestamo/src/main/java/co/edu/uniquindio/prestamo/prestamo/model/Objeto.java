@@ -48,4 +48,8 @@ public class Objeto {
                 ", idObjeto='" + idObjeto + '\'' +
                 '}';
     }
+
+    public boolean isDisponible() {
+        return ownedByPrestamoUq == null;
+    }
 }

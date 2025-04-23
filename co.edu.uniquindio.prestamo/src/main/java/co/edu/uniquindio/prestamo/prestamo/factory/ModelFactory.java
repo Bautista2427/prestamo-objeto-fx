@@ -3,12 +3,14 @@ package co.edu.uniquindio.prestamo.prestamo.factory;
 import co.edu.uniquindio.prestamo.prestamo.mapping.dto.ClienteDto;
 import co.edu.uniquindio.prestamo.prestamo.mapping.mappers.PrestamoMappingImpl;
 import co.edu.uniquindio.prestamo.prestamo.model.Cliente;
+import co.edu.uniquindio.prestamo.prestamo.model.Objeto;
 import co.edu.uniquindio.prestamo.prestamo.model.PrestamoObjeto;
 import co.edu.uniquindio.prestamo.prestamo.service.IModelFactoryService;
 import co.edu.uniquindio.prestamo.prestamo.service.IPrestamoMapping;
 import co.edu.uniquindio.prestamo.prestamo.utils.DataUtil;
 
 import java.util.List;
+import java.util.Map;
 
 public class ModelFactory implements IModelFactoryService {
     private static ModelFactory modelFactory;
@@ -45,7 +47,23 @@ public class ModelFactory implements IModelFactoryService {
         return prestamoObjeto.eliminarCliente(cedula);
     }
 
-    public String buscarObjetoIdenfiticador(String idenfiticador){
-        return prestamoObjeto.buscarObjetoIdenfiticador(idenfiticador);
+    public String buscarObjetoIdentificador(String idenfiticador){
+        return prestamoObjeto.buscarObjetoIdentificador(idenfiticador);
     }
+
+    public List<Objeto> obtenerObjetosMasPrestados(int minimoPrestamos) {
+        return prestamoObjeto.obtenerObjetosMasPrestados(minimoPrestamos);
+    }
+
+    public Map<String, Integer> obtenerCantidadDisponibilidad() {
+        return prestamoObjeto.obtenerCantidadDisponibilidad();
+    }
+
+    public String obtenerCantidadObjetosDisponibles() {
+        Map<String, Integer> cantidades = obtenerCantidadDisponibilidad();
+        return "Disponibles: " + cantidades.get("disponibles") +
+                ", No disponibles: " + cantidades.get("noDisponibles");
+    }
+
+
 }
