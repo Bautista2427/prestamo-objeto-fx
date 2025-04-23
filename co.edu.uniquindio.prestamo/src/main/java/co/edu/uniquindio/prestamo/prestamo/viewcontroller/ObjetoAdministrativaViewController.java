@@ -52,7 +52,8 @@ public class ObjetoAdministrativaViewController {
     }
 
     @FXML
-    void onBuscarObjetoRango(ActionEvent event) {String textoRango = txtRangoObjeto.getText();
+    void onBuscarObjetoRango(ActionEvent event) {
+        String textoRango = txtRangoObjeto.getText();
         if (!textoRango.isBlank()) {
             try {
                 int minimoPrestamos = Integer.parseInt(textoRango.trim());

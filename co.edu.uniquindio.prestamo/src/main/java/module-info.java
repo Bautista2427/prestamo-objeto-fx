@@ -10,4 +10,8 @@ module co.edu.uniquindio.prestamo.prestamo {
     exports co.edu.uniquindio.prestamo.prestamo.viewcontroller;
     opens co.edu.uniquindio.prestamo.prestamo.controller;
     exports co.edu.uniquindio.prestamo.prestamo.controller;
+
+    opens co.edu.uniquindio.prestamo.prestamo.patronesPreParcial.facade;
+    exports co.edu.uniquindio.prestamo.prestamo.patronesPreParcial.facade;
+
 }
