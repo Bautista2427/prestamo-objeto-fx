@@ -65,5 +65,7 @@ public class ModelFactory implements IModelFactoryService {
                 ", No disponibles: " + cantidades.get("noDisponibles");
     }
 
-
+    public List<Cliente> obtenerClientesConMasPrestamos(int minimoPrestamos) {
+        return prestamoObjeto.obtenerClientesConMasPrestamos(minimoPrestamos);
+    }
 }

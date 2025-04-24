@@ -4,6 +4,7 @@ import co.edu.uniquindio.prestamo.prestamo.factory.ModelFactory;
 import co.edu.uniquindio.prestamo.prestamo.mapping.dto.ClienteDto;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ClienteController {
     ModelFactory modelFactory;
@@ -22,4 +23,12 @@ public class ClienteController {
     public boolean eliminarCliente(String cedula) {
         return modelFactory.eliminarCliente(cedula);
     }
+
+    public List<String> obtenerClientesConMasPrestamos(int minimoPrestamos) {
+        return modelFactory.obtenerClientesConMasPrestamos(minimoPrestamos)
+                .stream()
+                .map(cliente -> cliente.getNombre() + " " + cliente.getApellido())
+                .collect(Collectors.toList());
+    }
+
 }

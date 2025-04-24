@@ -187,4 +187,17 @@ public class PrestamoObjeto {
         resultado.put("noDisponibles", noDisponibles);
         return resultado;
     }
+
+    public List<Cliente> obtenerClientesConMasPrestamos(int minimoPrestamos) {
+        List<Cliente> resultado = new ArrayList<>();
+        for (Cliente cliente : listaClientes) {
+            int prestamos = (int) listaPrestamos.stream()
+                    .filter(prestamo -> prestamo.getClienteAsociado().equals(cliente))
+                    .count();
+            if (prestamos > minimoPrestamos) {
+                resultado.add(cliente);
+            }
+        }
+        return resultado;
+    }
 }
