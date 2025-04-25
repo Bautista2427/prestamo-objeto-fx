@@ -1,6 +1,5 @@
 package co.edu.uniquindio.prestamo.prestamo.viewcontroller;
 
-import co.edu.uniquindio.prestamo.prestamo.controller.ClienteController;
 import co.edu.uniquindio.prestamo.prestamo.controller.ObjetoController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,7 +45,7 @@ public class ObjetoAdministrativaViewController {
     void onBuscarObjetoIdentificador(ActionEvent event) {
         String identificador= txtIdentificaorObjeto.getText();
         if(!identificador.isBlank()){
-            String nombreObjeto=objetoController.buscarObjetoIdenfiticador(identificador);
+            String nombreObjeto = objetoController.buscarObjetoIdenfiticador(identificador);
             txtObjeto.setText(nombreObjeto);
         }
     }
@@ -63,7 +62,7 @@ public class ObjetoAdministrativaViewController {
                 if (objetos.isEmpty()) {
                     txtListaObjetosPrestados.setText("No hay objetos que superen ese número de préstamos.");
                 } else {
-                    StringBuilder resultado = new StringBuilder("Objetos más prestados:\n");
+                    StringBuilder resultado = new StringBuilder("\n");
                     for (String obj : objetos) {
                         resultado.append("- ").append(obj).append("\n");
                     }
@@ -91,5 +90,4 @@ public class ObjetoAdministrativaViewController {
     @FXML
     void initialize() {
     }
-
 }

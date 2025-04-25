@@ -3,15 +3,20 @@ package co.edu.uniquindio.prestamo.prestamo.utils;
 import co.edu.uniquindio.prestamo.prestamo.model.Cliente;
 import co.edu.uniquindio.prestamo.prestamo.model.Objeto;
 import co.edu.uniquindio.prestamo.prestamo.model.PrestamoObjeto;
+import co.edu.uniquindio.prestamo.prestamo.model.Prestamo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataUtil {
 
     public static PrestamoObjeto inicializarDatos() {
         PrestamoObjeto prestamoObjeto = new PrestamoObjeto();
-        Objeto objeto1 = new Objeto( "Espada Legendaria","OBJ001");
-        Objeto objeto2 = new Objeto( "Escudo Mágico","OBJ002");
+        Objeto objeto1 = new Objeto("Espada Legendaria", "OBJ001");
+        Objeto objeto2 = new Objeto("Escudo Mágico", "OBJ002");
         Objeto objeto3 = new Objeto("Hacha Leviatan", "OBJ003");
         Objeto objeto4 = new Objeto("Ballesta Valheim", "OBJ004");
+
         Cliente cliente1 = Cliente.builder()
                 .cedula("1094")
                 .nombre("juan")
@@ -45,6 +50,31 @@ public class DataUtil {
         prestamoObjeto.getListaClientes().add(cliente1);
         prestamoObjeto.getListaClientes().add(cliente2);
         prestamoObjeto.getListaClientes().add(cliente3);
+
+        objeto2.setOwnedByPrestamoUq(prestamoObjeto);
+
+        Prestamo prestamo = new Prestamo();
+        prestamo.setClienteAsociado(cliente1);
+        List<Objeto> objetosPrestados = new ArrayList<>();
+        objetosPrestados.add(objeto1);
+        objetosPrestados.add(objeto2);
+        prestamo.setListaObjetosAsociados(objetosPrestados);
+        prestamoObjeto.getListaPrestamos().add(prestamo);
+
+        prestamo.setClienteAsociado(cliente2);
+        List<Objeto> objetosPrestados2 = new ArrayList<>();
+        objetosPrestados2.add(objeto1);
+        objetosPrestados2.add(objeto2);
+        prestamo.setListaObjetosAsociados(objetosPrestados2);
+        prestamoObjeto.getListaPrestamos().add(prestamo);
+
+
+        prestamo.setClienteAsociado(cliente3);
+        List<Objeto> objetosPrestados3 = new ArrayList<>();
+        objetosPrestados3.add(objeto1);
+        objetosPrestados3.add(objeto2);
+        prestamo.setListaObjetosAsociados(objetosPrestados3);
+        prestamoObjeto.getListaPrestamos().add(prestamo);
 
         return prestamoObjeto;
     }

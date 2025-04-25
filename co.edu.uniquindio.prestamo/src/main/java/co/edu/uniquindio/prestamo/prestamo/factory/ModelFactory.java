@@ -59,12 +59,6 @@ public class ModelFactory implements IModelFactoryService {
         return prestamoObjeto.obtenerCantidadDisponibilidad();
     }
 
-    public String obtenerCantidadObjetosDisponibles() {
-        Map<String, Integer> cantidades = obtenerCantidadDisponibilidad();
-        return "Disponibles: " + cantidades.get("disponibles") +
-                ", No disponibles: " + cantidades.get("noDisponibles");
-    }
-
     public List<Cliente> obtenerClientesConMasPrestamos(int minimoPrestamos) {
         return prestamoObjeto.obtenerClientesConMasPrestamos(minimoPrestamos);
     }

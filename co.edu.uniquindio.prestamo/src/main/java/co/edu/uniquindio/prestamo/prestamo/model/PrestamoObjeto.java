@@ -1,6 +1,5 @@
 package co.edu.uniquindio.prestamo.prestamo.model;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +24,14 @@ public class PrestamoObjeto {
 
     public void setListaObjetos(List<Objeto> listaObjetos) {
         this.listaObjetos = listaObjetos;
+    }
+
+    public List<Prestamo> getListaPrestamos() {
+        return listaPrestamos;
+    }
+
+    public void setListaPrestamos(List<Prestamo> listaPrestamos) {
+        this.listaPrestamos = listaPrestamos;
     }
 
     public boolean crearCliente(String cedula,
@@ -194,7 +201,7 @@ public class PrestamoObjeto {
             int prestamos = (int) listaPrestamos.stream()
                     .filter(prestamo -> prestamo.getClienteAsociado().equals(cliente))
                     .count();
-            if (prestamos > minimoPrestamos) {
+            if (prestamos >= minimoPrestamos) {
                 resultado.add(cliente);
             }
         }

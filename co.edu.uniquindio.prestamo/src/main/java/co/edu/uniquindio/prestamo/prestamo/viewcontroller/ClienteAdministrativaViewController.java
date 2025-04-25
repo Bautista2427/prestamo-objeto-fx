@@ -30,7 +30,7 @@ public class ClienteAdministrativaViewController {
             if (clientes.isEmpty()) {
                 txtListaClientesMayorPrestamo.setText("No hay clientes con más de " + minimoPrestamos + " préstamos.");
             } else {
-                StringBuilder resultado = new StringBuilder("Clientes con más de " + minimoPrestamos + " préstamos:\n");
+                StringBuilder resultado = new StringBuilder(minimoPrestamos);
                 for (String nombre : clientes) {
                     resultado.append("- ").append(nombre).append("\n");
                 }

@@ -1,6 +1,5 @@
 package co.edu.uniquindio.prestamo.prestamo.service;
 
-
 import co.edu.uniquindio.prestamo.prestamo.mapping.dto.ClienteDto;
 import co.edu.uniquindio.prestamo.prestamo.model.Cliente;
 

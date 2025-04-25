@@ -30,5 +30,4 @@ public class ClienteController {
                 .map(cliente -> cliente.getNombre() + " " + cliente.getApellido())
                 .collect(Collectors.toList());
     }
-
 }
