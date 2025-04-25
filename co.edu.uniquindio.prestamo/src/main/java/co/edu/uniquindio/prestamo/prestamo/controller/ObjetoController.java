@@ -26,7 +26,7 @@ public class ObjetoController {
                 .collect(Collectors.toList());
     }
 
-    public Map<String, Integer> obtenerCantidadObjetosDisponibles() {
+    public String obtenerCantidadObjetosDisponibles() {
         return modelFactory.obtenerCantidadDisponibilidad();
     }
 }

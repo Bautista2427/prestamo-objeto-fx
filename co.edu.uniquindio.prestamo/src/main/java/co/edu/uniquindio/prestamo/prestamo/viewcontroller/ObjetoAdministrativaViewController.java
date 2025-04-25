@@ -39,6 +39,9 @@ public class ObjetoAdministrativaViewController {
     private TextField txtObjeto;
 
     @FXML
+    private TextArea txtDisponibilidadSalida;
+
+    @FXML
     private Label lbCantidadNoDisponible;
 
     @FXML
@@ -78,13 +81,9 @@ public class ObjetoAdministrativaViewController {
 
     @FXML
     void onBuscarCantidadObjetos(ActionEvent event) {
-        Map<String, Integer> cantidades = objetoController.obtenerCantidadObjetosDisponibles();
+        String disponibilidad = objetoController.obtenerCantidadObjetosDisponibles();
 
-        int disponibles = cantidades.getOrDefault("disponibles", 0);
-        int noDisponibles = cantidades.getOrDefault("noDisponibles", 0);
-
-        lbCantidadDisponible.setText("Disponibles: " + disponibles);
-        lbCantidadNoDisponible.setText("No disponibles: " + noDisponibles);
+        txtDisponibilidadSalida.setText("Disponibles: " + disponibilidad);
     }
 
     @FXML

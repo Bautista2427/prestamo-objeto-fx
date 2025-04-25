@@ -177,22 +177,18 @@ public class PrestamoObjeto {
         return contador;
     }
 
-    public Map<String, Integer> obtenerCantidadDisponibilidad() {
-        int disponibles = 0;
-        int noDisponibles = 0;
-
+    public String  obtenerCantidadDisponibilidad() {
+        String disponibilidad = "Objetos disponibles\n";
+        String disponibilidad2 = "Objetos no disponibles\n";
         for (Objeto obj : listaObjetos) {
             if (obj.isDisponible()) {
-                disponibles++;
+                disponibilidad+=obj.toString()+"\n";
             } else {
-                noDisponibles++;
+                disponibilidad2+=obj.toString()+"\n";
             }
         }
-
-        Map<String, Integer> resultado = new HashMap<>();
-        resultado.put("disponibles", disponibles);
-        resultado.put("noDisponibles", noDisponibles);
-        return resultado;
+        disponibilidad+= disponibilidad2;
+        return disponibilidad;
     }
 
     public List<Cliente> obtenerClientesConMasPrestamos(int minimoPrestamos) {
