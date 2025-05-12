@@ -1,0 +1,5 @@
+package co.edu.uniquindio.prestamo.prestamo.viewcontroller;
+
+public class parcial2ViewController {
+
+}

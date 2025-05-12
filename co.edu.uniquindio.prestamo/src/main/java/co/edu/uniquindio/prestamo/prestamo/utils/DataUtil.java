@@ -1,11 +1,9 @@
 package co.edu.uniquindio.prestamo.prestamo.utils;
 
-import co.edu.uniquindio.prestamo.prestamo.model.Cliente;
-import co.edu.uniquindio.prestamo.prestamo.model.Objeto;
-import co.edu.uniquindio.prestamo.prestamo.model.PrestamoObjeto;
-import co.edu.uniquindio.prestamo.prestamo.model.Prestamo;
+import co.edu.uniquindio.prestamo.prestamo.model.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DataUtil {
@@ -16,6 +14,17 @@ public class DataUtil {
         Objeto objeto2 = new Objeto("Escudo Mágico", "OBJ002");
         Objeto objeto3 = new Objeto("Hacha Leviatan", "OBJ003");
         Objeto objeto4 = new Objeto("Ballesta Valheim", "OBJ004");
+        Prestamo prestamo1 = new Prestamo();
+        Prestamo prestamo2 = new Prestamo();
+        Empleado empleado1=new Empleado("pedro");
+        Empleado empleado2=new Empleado("juan");
+        //empleado2.asociarPrestamo(prestamo1);
+        empleado2.asociarPrestamo(prestamo2);
+        empleado1.asociarPrestamo(prestamo1);
+        Prestamo prestamo3= new Prestamo();
+
+        prestamoObjeto.getListaEmpleados().add(empleado1);
+        prestamoObjeto.getListaEmpleados().add(empleado2);
 
         Cliente cliente1 = Cliente.builder()
                 .cedula("1094")

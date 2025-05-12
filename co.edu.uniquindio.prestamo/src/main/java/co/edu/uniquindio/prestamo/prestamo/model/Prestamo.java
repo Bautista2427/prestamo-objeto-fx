@@ -17,6 +17,11 @@ public class Prestamo {
     public Prestamo() {
     }
 
+    public Prestamo(Date fechaPrestamo,Date fechaEntrega){
+        this.fechaPrestamo = fechaPrestamo;
+        this.fechaEntrega = fechaEntrega;
+    }
+
     public String getNumeroPrestamo() {
         return numeroPrestamo;
     }
@@ -25,8 +30,8 @@ public class Prestamo {
         this.numeroPrestamo = numeroPrestamo;
     }
 
-    public Date getFechaPrestamo() {
-        return fechaPrestamo;
+    public String getFechaPrestamo() {
+        return String.valueOf(fechaPrestamo);
     }
 
     public void setFechaPrestamo(Date fechaPrestamo) {
@@ -73,4 +78,16 @@ public class Prestamo {
         this.listaObjetosAsociados = listaObjetosAsociados;
     }
 
+    @Override
+    public String toString() {
+        return "Prestamo{" +
+                "numeroPrestamo='" + numeroPrestamo + '\'' +
+                ", fechaPrestamo=" + fechaPrestamo +
+                ", fechaEntrega=" + fechaEntrega +
+                ", descripcion='" + descripcion + '\'' +
+                ", empleadoAsociado=" + empleadoAsociado +
+                ", clienteAsociado=" + clienteAsociado +
+                ", listaObjetosAsociados=" + listaObjetosAsociados +
+                '}';
+    }
 }

@@ -6,6 +6,7 @@ import co.edu.uniquindio.prestamo.prestamo.model.Objeto;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.Date;
 
 public class ObjetoController {
     ModelFactory modelFactory;
@@ -28,5 +29,13 @@ public class ObjetoController {
 
     public String obtenerCantidadObjetosDisponibles() {
         return modelFactory.obtenerCantidadDisponibilidad();
+    }
+
+    public String obtenerPrestamosPorFechaEspecifica(Date fechaEspecifica) {
+        return modelFactory.obtenerPrestamosPorFechaEspecifica(fechaEspecifica);
+    }
+
+    public String buscarObjetosDisponibilidad(boolean prestados, boolean noPrestados, boolean todos) {
+        return modelFactory.buscarObjetosDisponibilidad(prestados,noPrestados,todos);
     }
 }

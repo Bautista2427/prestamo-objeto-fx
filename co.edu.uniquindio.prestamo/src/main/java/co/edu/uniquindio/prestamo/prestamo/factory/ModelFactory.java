@@ -9,6 +9,8 @@ import co.edu.uniquindio.prestamo.prestamo.service.IModelFactoryService;
 import co.edu.uniquindio.prestamo.prestamo.service.IPrestamoMapping;
 import co.edu.uniquindio.prestamo.prestamo.utils.DataUtil;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -61,5 +63,16 @@ public class ModelFactory implements IModelFactoryService {
 
     public List<Cliente> obtenerClientesConMasPrestamos(int minimoPrestamos) {
         return prestamoObjeto.obtenerClientesConMasPrestamos(minimoPrestamos);
+    }
+    public String obtenerEmpleadoConMasPrestamos(int minimoPrestamos){
+        return prestamoObjeto.obtenerEmpleadoConMasPrestamo(minimoPrestamos);
+    }
+
+    public String obtenerPrestamosPorFechaEspecifica(Date fechaEspecifica) {
+        return prestamoObjeto.obtenerPrestamosPorFechaEspecifica(fechaEspecifica);
+
+    }
+    public String buscarObjetosDisponibilidad(boolean prestados,boolean noPrestados,boolean todos){
+        return prestamoObjeto.buscarObjetosDisponibilidad(prestados,noPrestados,todos);
     }
 }

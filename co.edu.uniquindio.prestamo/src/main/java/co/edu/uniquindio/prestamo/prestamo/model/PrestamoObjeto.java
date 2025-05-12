@@ -1,9 +1,9 @@
 package co.edu.uniquindio.prestamo.prestamo.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Date;
 
 public class PrestamoObjeto {
 
@@ -98,6 +98,14 @@ public class PrestamoObjeto {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public List<Empleado> getListaEmpleados() {
+        return listaEmpleados;
+    }
+
+    public void setListaEmpleados(List<Empleado> listaEmpleados) {
+        this.listaEmpleados = listaEmpleados;
     }
 
     public void setNombre(String nombre) {
@@ -199,6 +207,65 @@ public class PrestamoObjeto {
                     .count();
             if (prestamos >= minimoPrestamos) {
                 resultado.add(cliente);
+            }
+        }
+        return resultado;
+    }
+
+    public String obtenerEmpleadoConMasPrestamo(int minimoPrestamos) {
+        String resultado = "";
+        for(Empleado empleado: listaEmpleados){
+            if(empleado.getListaPrestamosAsociados().size() == minimoPrestamos) {
+                resultado+=empleado.toString()+"\n";
+            }
+        }
+
+        return resultado;
+    }
+
+    public String obtenerPrestamosPorFechaEspecifica(Date fechaEspecifica) {
+        String resultado = "Lista prestamo por fecha de especifica\n";
+        for(Prestamo prestamo: listaPrestamos){
+           String fechaPrestamo=prestamo.getFechaPrestamo();
+            if(fechaPrestamo.equals(fechaEspecifica)){
+                resultado+=prestamo.toString()+"\n";
+            }
+        }
+
+        return resultado;
+    }
+
+    public String buscarObjetosDisponibilidad(boolean prestados, boolean noPrestados, boolean todos) {
+        String listaDisponibilidad = "";
+        if(prestados){
+            listaDisponibilidad=obtenerlistaObjetoPrestado();
+        }
+        else if (noPrestados){
+            listaDisponibilidad=obtenerlistaObjetoNoPrestado();
+        } else if (todos) {
+            listaDisponibilidad+=obtenerlistaObjetoPrestado();
+            listaDisponibilidad+=obtenerlistaObjetoNoPrestado();
+        }
+
+        return listaDisponibilidad;
+    }
+
+    private String obtenerlistaObjetoNoPrestado() {
+        String resultado = "los objetos No prestados son\n";
+        for(Objeto objeto: listaObjetos){
+            if(!objeto.isDisponible()){
+                resultado+=objeto.toString()+"\n";
+            }
+        }
+
+        return resultado;
+    }
+
+    private String obtenerlistaObjetoPrestado() {
+        String resultado = "los objetos prestados son\n";
+        for(Objeto objeto: listaObjetos){
+            if(objeto.isDisponible()){
+                resultado+=objeto.toString()+"\n";
             }
         }
         return resultado;

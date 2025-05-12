@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="729.0" prefWidth="664.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.prestamo.prestamo.viewcontroller.PrestamosParcial2ViewController">
+   <children>
+      <RadioButton fx:id="rbPrestados" layoutX="67.0" layoutY="47.0" mnemonicParsing="false" text="Prestados" />
+      <RadioButton fx:id="rbNoPrestados" layoutX="160.0" layoutY="47.0" mnemonicParsing="false" text="No prestados" />
+      <Label layoutX="57.0" layoutY="232.0" text="Valor de consulta" />
+      <TextField fx:id="txtValorConsulta" layoutX="160.0" layoutY="228.0" />
+      <Button fx:id="btnValorConsulta" layoutX="334.0" layoutY="228.0" mnemonicParsing="false" onAction="#OnValorConsulta" text="Buscar" />
+      <TextArea fx:id="txtListadoEmpleados" layoutX="58.0" layoutY="282.0" prefHeight="76.0" prefWidth="491.0" />
+      <Label layoutX="55.0" layoutY="264.0" text="Listado Empleados:" />
+      <TextArea fx:id="txtListaPrestamoFechaInicialFinal" layoutX="58.0" layoutY="636.0" prefHeight="76.0" prefWidth="491.0" />
+      <Label layoutX="61.0" layoutY="618.0" text="Listado:" />
+      <TextField fx:id="txtFechaInicial" layoutX="160.0" layoutY="558.0" />
+      <Label layoutX="62.0" layoutY="562.0" text="Fecha Inicial:" />
+      <Label layoutX="65.0" layoutY="592.0" text="Fecha Final:" />
+      <TextField fx:id="txtFechaFinal" layoutX="160.0" layoutY="588.0" />
+      <Separator layoutX="14.0" layoutY="365.0" prefHeight="6.0" prefWidth="611.0" />
+      <Button fx:id="btnFechaEspecifica" layoutX="334.0" layoutY="395.0" mnemonicParsing="false" onAction="#OnFechaEspecifica" text="Buscar" />
+      <RadioButton fx:id="rbTodos" layoutX="276.0" layoutY="47.0" mnemonicParsing="false" text="Todos" />
+      <TextArea fx:id="txtListadoObjetosPrestadosNoPrestados" layoutX="60.0" layoutY="80.0" prefHeight="76.0" prefWidth="491.0" />
+      <Button fx:id="btnObjetosPrestadosNoPrestados" layoutX="254.0" layoutY="163.0" mnemonicParsing="false" onAction="#OnObjetosPrestadosNoPrestados" text="Buscar" />
+      <Button fx:id="btnFechaInicialFinal" layoutX="334.0" layoutY="558.0" mnemonicParsing="false" onAction="#OnFechaInicialFinal" text="Buscar" />
+      <TextField fx:id="txtFechaEspecifica" layoutX="160.0" layoutY="395.0" />
+      <Label layoutX="62.0" layoutY="399.0" text="Fecha Especifica:" />
+      <Separator layoutX="34.0" layoutY="199.0" prefHeight="6.0" prefWidth="611.0" />
+      <TextArea fx:id="txtListaFechaEspecifica" layoutX="58.0" layoutY="455.0" prefHeight="76.0" prefWidth="491.0" />
+      <Separator layoutX="27.0" layoutY="542.0" prefHeight="6.0" prefWidth="611.0" />
+      <Label layoutX="59.0" layoutY="437.0" text="Listado:" />
+   </children>
+</AnchorPane>
